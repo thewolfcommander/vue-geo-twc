@@ -19,6 +19,8 @@
         </div>
         <p v-if="feedback" class="center"><small class="red-text">{{ feedback }}</small></p>
         <div class="field center"><button class="btn deep-purple">Signup</button></div>
+
+        <p class="center">Already have an account? <strong class="deep-purple-text"><router-link :to="{ name: 'Login' }" class="deep-purple-text">Login</router-link></strong></p>
     </form>
 </div>
     
