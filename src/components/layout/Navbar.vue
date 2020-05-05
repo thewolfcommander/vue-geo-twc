@@ -4,16 +4,17 @@
         <nav class="deep-purple darken-1">
             <div class="container">
                 <span class="brand-logo left">
-                    <router-link to="">
-                        GeoNinjas
+                    <!-- <img src="@/assets/logo.png" width="90px"> -->
+                    <router-link :to="{ name: 'GMap' }">
+                        <span>VueGeoTWC</span>
                     </router-link>
                 </span>
                 <ul class="right">
                     <li>
-                        <router-link>Signup</router-link>
+                        <router-link :to="{ name: 'Signup' }">Signup</router-link>
                     </li>
                     <li>
-                        <router-link>Login</router-link>
+                        <router-link to="">Login</router-link>
                     </li>
                 </ul>
             </div>
@@ -35,6 +36,8 @@ export default {
 
 <style>
 
-
+.navbar {
+    z-index: 1001;
+}
 
 </style>
