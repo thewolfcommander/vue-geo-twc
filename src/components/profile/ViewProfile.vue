@@ -18,6 +18,7 @@
 
 <script>
 import firebase from 'firebase'
+import moment from 'moment'
 import db from '@/firebase/init'
 import AddComment from '@/components/profile/AddComment'
 
@@ -51,7 +52,7 @@ export default {
             console.log(err)
         })
 
-        let com = db.collection('comments').orderBy('timestamp')
+        let com = db.collection('comments').where('to', '==', this.$route.params.id).orderBy('timestamp')
 
         com.onSnapshot(snapshot =>{
             snapshot.docChanges().forEach(change => {
@@ -62,7 +63,7 @@ export default {
                     content: doc.data().content,
                     from: doc.data().from,
                     to: doc.data().to,
-                    timestamp: doc.data().timestamp
+                    timestamp: moment(doc.data().timestamp).format('lll')
                 })
             })
         })
